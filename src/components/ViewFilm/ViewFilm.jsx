@@ -4,36 +4,36 @@ import Main from "../Main/Main"
 
 import { useState } from "react"
 
-const ViewFilm = (props) => {
+const ViewFilm = ({idmovie, setShow, wow, setWow, setShowResults}) => {
   
-    //console.log(props)
+    console.log(idmovie)
     //console.log(props.imdbID)
 
-    //const ID = SearchspecificService(props)
-    
-    const [wow, setWow] = useState(true)
-    const [show, setShow] = useState(true)
+    console.log('labas')
+
+    const ID = idmovie
 
     const backtomovies = () => {
-        console.log('labas')
-        setWow(!wow)
-        setShow(!show)
-      }
+       console.log('labas')
+       setShowResults(false)
+       setShow(true)
+     }
 
     return (
         wow && <div className='pagr-div'>
-            <img className='belekas' src={props.idmovie.Poster} alt=""/>
-            <p><b>Title:</b> {props.idmovie.Title}</p>
-            <p><b>Plot:</b> {props.idmovie.Plot}</p>
-            <p><b>Genre:</b> {props.idmovie.Genre}</p>
-            <p><b>Actors:</b> {props.idmovie.Actors}</p>
-            <p><b>Writer:</b> {props.idmovie.Writer}</p>
-            <p><b>Runtime:</b> {props.idmovie.Runtime}</p>
-            <p><b>Released:</b> {props.idmovie.Released}</p>
-            <p><b>Production:</b> {props.idmovie.Production}</p>
-            <button className='button-28' onClick={() => backtomovies()}>BACK</button>
-
-            {show && <OneFilm/>}
+            <img className='belekas' src={ID.Poster} alt=""/>
+            <p><b>Title:</b> {ID.Title}</p>
+            <p><b>Plot:</b> {ID.Plot}</p>
+            <p><b>Genre:</b> {ID.Genre}</p>
+            <p><b>Actors:</b> {ID.Actors}</p>
+            <p><b>Writer:</b> {ID.Writer}</p>
+            <p><b>Runtime:</b> {ID.Runtime}</p>
+            <p><b>Released:</b> {ID.Released}</p>
+            <p><b>Production:</b> {ID.Production}</p>
+            <button className='button-28' onClick={()=>{
+                setWow(false)
+                backtomovies()}
+                }>BACK</button>
 
         </div>
     );

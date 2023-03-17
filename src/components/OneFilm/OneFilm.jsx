@@ -13,13 +13,16 @@ const OneFilm = (props) => {
   const [show, setShow] = useState(true)
   const [idmovie, setIdMovie] = useState('')
   const [showResults, setShowResults] = useState(false)
+  const [wow, setWow] = useState(true)
 
   const getmoviebyid = (searchWord) => {
-    setShow(!show)
+    if(wow === false){
+        setWow(true)
+    }
+    setShow(false)
     SearchspecificService(searchWord).then(res => {
         setIdMovie(res)
-        setShowResults(!showResults)
-    })
+        setShowResults(!showResults)})
   }
 
   return (
@@ -38,7 +41,7 @@ const OneFilm = (props) => {
         })
       }
 
-      {showResults ? <ViewFilm idmovie={idmovie}/> : null}
+      {showResults ? <ViewFilm idmovie={idmovie} setShow={setShow} wow={wow} setWow={setWow} setShowResults={setShowResults}/> : null}
     </div>
   );
 }
