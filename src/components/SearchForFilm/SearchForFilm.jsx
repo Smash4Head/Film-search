@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SearchService from "../../sevices/SearchService.js";
+import OneFilm from "../OneFilm/OneFilm.jsx";
 
-const SearchForFilm = ({setResults}) => {
+const SearchForFilm = () => {
 
-    const [searchWord, setsearchWord] = useState('')
+    const [filmFromApi, setfilmFromApi] = useState([])
 
-    const handleChange = (searchWord) => {
-        setsearchWord(searchWord);
+    const setResults = (products) => {
+        setfilmFromApi(products)
+    }
+
+    const inputRef = useRef(null);
+
+    const handleChange = () => {
+        getProduct(inputRef.current.value);
+        inputRef.current.value = ""
     }
 
     const getProduct = (searchWord) => {
@@ -15,15 +23,18 @@ const SearchForFilm = ({setResults}) => {
         })
     }
 
+    console.log(filmFromApi)
+
     return(
         <div>
             <input type="text" 
-            value={searchWord} 
-            onChange={(e)=> handleChange(e.target.value)}
+            ref={inputRef}
+            placeholder='Enter movie name'
             />
-            <button onClick={()=>{
-                getProduct(searchWord)
-            }}>SEARCH</button>
+
+            <button onClick={handleChange}>SEARCH</button>
+
+            <OneFilm filmFromApi={filmFromApi.Search}/> 
         </div>
     )
 }
