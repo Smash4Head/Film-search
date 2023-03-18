@@ -1,0 +1,30 @@
+.containersearch{
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 34%;
+}
+
+.movieinput{
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 500px;
+    height: 30px;
+    border-style: none;
+    border: 1px solid black;
+}
+
+.searchbtn{
+    color: #fff;
+    background-color: #dfba18;
+    border-style: none;
+    border-radius: 5px;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.searchbtn:hover{
+    background-color: #b99e00;
+}

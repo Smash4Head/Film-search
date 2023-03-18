@@ -1,0 +1,43 @@
+.titlebox{
+    background-color: #faebd7;
+    position: absolute;
+    left: 31%;
+    top: 0%;
+    height: 80px;
+    width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+.viewfilm{
+    display: flex;
+    border-radius: 15px;
+    padding: 10px;
+    width: 70%;
+    background-color: rgb(196, 141, 59);
+    margin-left: 15%;
+}
+
+.filminfo{
+    padding: 30px;
+}
+
+.infotext{
+    padding: 20px;
+}
+
+.backbtn{
+    color: #fff;
+    background-color: #dfba18
+    ;
+    border-style: none;
+    border-radius: 5px;
+    padding: 7px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20px;
+}
+
+.backbtn:hover{
+    background-color: #b99e00;
+}

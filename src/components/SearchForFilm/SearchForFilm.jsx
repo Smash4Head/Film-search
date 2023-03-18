@@ -1,14 +1,9 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import SearchService from "../../sevices/SearchService.js";
-import OneFilm from "../OneFilm/OneFilm.jsx";
 
-const SearchForFilm = () => {
+import styles from "./SearchForFilm.module.css"
 
-    const [filmFromApi, setfilmFromApi] = useState([])
-
-    const setResults = (products) => {
-        setfilmFromApi(products)
-    }
+const SearchForFilm = ({setResults}) => {
 
     const inputRef = useRef(null);
 
@@ -23,19 +18,18 @@ const SearchForFilm = () => {
         })
     }
 
-    console.log(filmFromApi)
-
     return(
-        <div>
+        <div className={styles.containersearch}>
             <input type="text" 
             ref={inputRef}
             placeholder='Enter movie name'
+            className={styles.movieinput}
             />
 
-            <button onClick={handleChange}>SEARCH</button>
+            <button className={styles.searchbtn} onClick={handleChange}>SEARCH</button>
 
-            <OneFilm filmFromApi={filmFromApi.Search}/> 
-        </div>
+        </div>  
+        
     )
 }
 
